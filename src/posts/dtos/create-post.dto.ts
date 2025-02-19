@@ -8,11 +8,10 @@ import {
   IsOptional,
   IsString,
   IsUrl,
-  Matches,
-  Min,
+  Matches, MaxLength,
   MinLength,
-  ValidateNested,
-} from 'class-validator';
+  ValidateNested
+} from "class-validator";
 
 import { CreatePostMetaOptionsDto } from './create-post-meta-options.dto';
 import { Type } from 'class-transformer';
@@ -26,6 +25,7 @@ export class CreatePostDto {
   })
   @IsString()
   @MinLength(4)
+  @MaxLength(512)
   @IsNotEmpty()
   title: string;
 
@@ -43,6 +43,7 @@ export class CreatePostDto {
   })
   @IsString()
   @IsNotEmpty()
+  @MaxLength(256)
   @Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
     message:
       'A slug should be all small letters and uses only "-" and without spaces. For example "my-url"',
@@ -81,6 +82,7 @@ export class CreatePostDto {
   })
   @IsOptional()
   @IsUrl()
+  @MaxLength(1024)
   featuredImageUrl?: string;
 
   @ApiPropertyOptional({

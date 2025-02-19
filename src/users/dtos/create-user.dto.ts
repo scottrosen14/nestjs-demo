@@ -1,11 +1,13 @@
 import {
   IsEmail,
   IsNotEmpty,
-  IsString, IsUUID, Length,
+  IsString,
+  IsUUID,
+  Length,
   Matches,
   MaxLength,
-  MinLength
-} from "class-validator";
+  MinLength,
+} from 'class-validator';
 
 export class CreateUserDto {
   @IsString()

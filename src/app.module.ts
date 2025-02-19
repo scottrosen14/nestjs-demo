@@ -5,7 +5,7 @@ import { Module } from '@nestjs/common';
 import { PostsModule } from './posts/posts.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
-import { Environment } from "./constants";
+import { Environment } from './constants';
 
 @Module({
   imports: [
@@ -24,7 +24,7 @@ import { Environment } from "./constants";
         password: '123',
         host: 'localhost',
         database: 'nestjs-blog',
-      })
+      }),
     }),
   ],
   controllers: [AppController],

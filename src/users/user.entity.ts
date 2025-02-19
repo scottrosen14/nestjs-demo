@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -31,14 +31,14 @@ export class User {
     type: 'varchar',
     length: 96,
     nullable: false,
-    unique: true
+    unique: true,
   })
   email: string;
 
   @Column({
     type: 'varchar',
     length: 96,
-    nullable: false
+    nullable: false,
   })
   password: string;
 }
