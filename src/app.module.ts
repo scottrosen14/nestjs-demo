@@ -6,6 +6,7 @@ import { PostsModule } from './posts/posts.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { Environment } from './constants';
+import { MetaOptionsModule } from './meta-options/meta-options.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { Environment } from './constants';
         database: 'nestjs-blog',
       }),
     }),
+    MetaOptionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
