@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { Environment } from './constants';
 import { MetaOptionsModule } from './meta-options/meta-options.module';
+import { TagsModule } from './tags/tags.module';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { MetaOptionsModule } from './meta-options/meta-options.module';
       inject: [],
       useFactory: () => ({
         type: 'postgres',
-        entities: [],
+        autoLoadEntities: true,
         synchronize: process.env.NODE_ENV === Environment.DEVELOPMENT,
         port: 5432,
         username: 'postgres',
@@ -28,6 +29,7 @@ import { MetaOptionsModule } from './meta-options/meta-options.module';
       }),
     }),
     MetaOptionsModule,
+    TagsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
